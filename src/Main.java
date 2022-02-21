@@ -31,8 +31,8 @@ public class Main {
         //recruit.stream().forEach(System.out::println);
 
         List<Person> higherEducation = persons.stream()
-                .filter(person -> person.getEducation() == Education.HIGHER &&
-                        person.getAge() >= 18 && (person.getSex() == Sex.MAN ? person.getAge() <= 65 : person.getAge() <= 60))
+                .filter(person -> person.getEducation() == Education.HIGHER)
+                .filter(person -> person.getAge() >= 18 && (person.getSex() == Sex.MAN ? person.getAge() <= 65 : person.getAge() <= 60))
                 .sorted(Comparator.comparing(Person::getFamily))
                 .collect(Collectors.toList());
         System.out.println("Людей рабочего возраста с высшим образованием: " + higherEducation.size());
